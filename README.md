@@ -11,15 +11,15 @@ PyHydroIntel is a repository of Python-based tools designed to enhance the opera
 ## Installation
 
 1. **Clone the repository:**
-===bash
+```bash
 git clone https://github.com/mehmetbercan/PyHydroIntel.git
 cd PyHydroIntel
-===
+```
 
 2. **Install dependencies:**
-===bash
+```bash
 pip install -e .
-===
+```
 *Note: Requires Python 3.9+.*
 
 ## Usage
@@ -27,17 +27,17 @@ pip install -e .
 The tool uses a YAML configuration file to manage input data (depths/velocities) and site parameters.
 
 1. **Navigate to the examples directory:**
-===bash
+```bash
 cd examples
-===
+```
 
 2. **Configure your data:**
 Open `config_sample.yaml` and update the `observations` (depth/velocity arrays) and `site_info` (diameter/slope).
 
 3. **Run the detection tool:**
-===bash
+```bash
 python run_example.py
-===
+```
 
 ## Available Modules
 
