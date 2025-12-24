@@ -21,3 +21,7 @@ We trained a Deep CNN on depth-velocity scatter plots generated from over 1.4 mi
 - **Validation:** Tested on physical experiments (20 cm pipes).
 - **Precision:** Real-world predictions fell within 0 cm, 0.3 cm, and 1.5 cm of actual blockage depths.
 
+#### Citation
+If you rely on this module for your research, please cite:
+
+> Ercan, M. B. "Leveraging AI to Identify Silt Accumulation and Blockage in Collection Systems." *Uludağ Üniversitesi Mühendislik Fakültesi Dergisi*, (Advanced Online Publication), 997-1010.
