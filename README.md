@@ -30,15 +30,15 @@ The tool uses a YAML configuration file to manage input data (depths/velocities)
 
 1. **Navigate to the examples directory:**
 ```bash
-cd examples
+cd examples/silt_depth_detection
 ```
 
 2. **Configure your data:**
-Open `config_sample.yaml` and update the `observations` (depth/velocity arrays) and `site_info` (diameter/slope).
+Open `config_sample1.yaml` and update the `observations` (depth/velocity arrays) and `site_info` (diameter/slope).
 
 3. **Run the detection tool:**
 ```bash
-python run_example.py
+python run_example_sample1.py
 ```
 
 ## Available Modules

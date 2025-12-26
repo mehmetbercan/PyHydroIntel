@@ -32,18 +32,4 @@ Ensure your environment is active (`conda activate pyhydro`), then install the p
 pip install -e .
 ```
 
-## Running Tests
-To run all test files in the `tests` directory (using `pytest`):
-```
-pytest
-```
-To run a specific test file (for example, `test_model.py`):
-```
-pytest tests/test_model.py
-```
-To run a specific test function inside a test file (for example, `test_train_function` in `test_model.py`):
-```
-pytest tests/test_model.py::test_train_function
-```
-
 ✅ **Tip:** Always use **Anaconda Prompt** and ensure your environment is active (`(pyhydro)` should appear on the left) before installing packages or running scripts. Happy coding! 🚀
