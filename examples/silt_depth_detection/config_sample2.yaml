@@ -1,0 +1,22 @@
+# Site Information: pipe diameter [in meter] and slope [rise/run]
+site_info:
+  diameter_m: 0.2
+  slope: 0.0072
+
+# Data arrays: flow depths [in meter] and velocities [in m/s]
+# observed values Exp1 (silt depth: 0.037 m)
+observations:
+  depths: [
+    0.066363636,0.070909091,0.070681818,0.076363636,0.076136364,0.080681818,
+    0.086590909,0.092272727,0.092272727,0.096136364,0.101136364,0.101136364,
+    0.106136364,0.110909091
+  ]
+  velocities: [
+    0.209090909,0.261818182,0.260909091,0.304545455,0.303636364,0.336363636,
+    0.4,0.427272727,0.427272727,0.450909091,0.487272727,0.486363636,
+    0.525454545,0.572727273
+  ]
+
+settings:
+  model_path: "../models/silt_cnn/trained_model.keras"
+  output_dir: "../data/input_plots"

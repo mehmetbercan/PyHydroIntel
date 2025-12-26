@@ -3,7 +3,16 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 from PIL import Image
-from matplotlib import pyplot as plt
+import matplotlib
+matplotlib.use('Agg') 
+import matplotlib.pyplot as plt
+
+# Hardcode Figure's exact configuration
+plt.rcParams['figure.dpi'] = 72.0
+plt.rcParams['savefig.dpi'] = 'figure'
+plt.rcParams['savefig.pad_inches'] = 0.1
+plt.rcParams['font.size'] = 10.0
+
 
 class SiltDetector:
     def __init__(self, model_path):
@@ -24,7 +33,7 @@ class SiltDetector:
         csz = diameter
         df = pd.DataFrame({'Depth': depths, 'Velocity': velocities})
         
-        # Determine Wet vs Dry logic based on max depth
+        # Determine Wet vs Dry logic
         is_wet = max(depths) >= csz
         weather_type = 'wet' if is_wet else 'dry'
         
@@ -36,15 +45,14 @@ class SiltDetector:
             y_lim = [-0.1, 3]
             x_lim = [-3, 5]
 
-        # Plotting
-        fig = plt.figure(num=1, clear=True, figsize=(2, 2))
+        # Plotting - Force dpi=72.0 explicitly here too
+        fig = plt.figure(num=1, clear=True, figsize=(2, 2), dpi=72.0)
         ax = fig.add_subplot()
         
         df.plot.scatter(x='Velocity', y='Depth', s=10, c='#026a9e', alpha=1, ax=ax)
         
-        # Draw Reference Lines (Conduit, Slope, etc)
-        ax.plot(x_lim, [csz, csz], zorder=-1, color='#595959', linewidth=0.8) # Top
-        # (Add other slope lines here as per original code if needed for visual debugging)
+        # Draw Reference Lines
+        ax.plot(x_lim, [csz, csz], zorder=-1, color='#595959', linewidth=0.8)
 
         ax.set_ylim(y_lim)
         ax.set_xlim(x_lim)
@@ -63,8 +71,17 @@ class SiltDetector:
 
         filename = f"{weather_type}_csz{diameter:.2f}_slope{slope}.png"
         filepath = os.path.join(output_dir, filename)
-        plt.savefig(filepath, bbox_inches='tight')
+        
+        # Use specific settings from Spyder
+        plt.savefig(filepath, bbox_inches='tight', dpi=72.0, pad_inches=0.1)
         plt.close(fig)
+        
+        # --- FIX: FORCE EXACT DIMENSIONS FOR CNN ---
+        # CNN expects shape (123, 126). This forces Width=126, Height=123.
+        with Image.open(filepath) as img:
+            if img.size != (126, 123):
+                img = img.resize((126, 123), Image.LANCZOS)
+                img.save(filepath)
         
         return filepath
 

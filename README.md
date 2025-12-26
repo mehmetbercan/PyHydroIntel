@@ -9,8 +9,10 @@
 PyHydroIntel is a repository of Python-based tools designed to enhance the operation and maintenance of urban drainage systems. By leveraging Deep Learning and hydraulic modeling, this project aims to prevent Sanitary Sewer Overflows (SSOs) and Combined Sewer Overflows (CSOs).
 
 ## Installation
-
+If you’re new, please read [**Help for Novice Users.md**](Help%20for%20Novice%20Users.md) first.  
+Then open a conda terminal in your project root (where `pyproject.toml` is)
 1. **Clone the repository:**
+(Alternatively, download the ZIP file from the repository page and extract it)
 ```bash
 git clone https://github.com/mehmetbercan/PyHydroIntel.git
 cd PyHydroIntel

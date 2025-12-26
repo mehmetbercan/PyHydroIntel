@@ -13,7 +13,7 @@ def load_config(yaml_path):
 
 def main():
     # Load Config
-    config_path = os.path.join(os.path.dirname(__file__), 'config_sample.yaml')
+    config_path = os.path.join(os.path.dirname(__file__), 'config_sample3.yaml')
     cfg = load_config(config_path)
 
     # Parse Config
@@ -40,3 +40,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
