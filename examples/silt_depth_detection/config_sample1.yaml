@@ -20,5 +20,5 @@ observations:
   ]
 
 settings:
-  model_path: "../models/silt_cnn/trained_model.keras"
-  output_dir: "../data/input_plots"
+  model_path: "../../models/silt_cnn/trained_model.keras"
+  output_dir: "../../data/input_plots"
