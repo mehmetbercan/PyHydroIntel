@@ -3,7 +3,7 @@ import os
 import yaml
 
 # Add parent directory to path to import from 'src'
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from src.silt_detection import SiltDetector
 
