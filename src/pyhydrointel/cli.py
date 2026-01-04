@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from pyhydrointel.config import load_silt_config
@@ -36,10 +37,14 @@ def main() -> None:
         det = SiltDetector(cfg.settings.model_path)
         height_m, ratio = det.predict_from_image(img_path, cfg.site_info.diameter_m)
 
-        out = {"image_path": str(img_path), "silt_ratio": ratio, "silt_height_m": height_m}
+        out = {
+            "image_path": str(img_path),
+            "silt_ratio": float(ratio),
+            "silt_height_m": float(height_m),
+        }
 
         if args.json:
-            print(json.dumps(out, indent=2))
+            sys.stdout.write(json.dumps(out, indent=2) + "\n")
         else:
             print(f"Image: {img_path}")
             print(f"Silt ratio: {ratio:.2f}")
